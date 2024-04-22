@@ -14,5 +14,22 @@ public class Main {
         System.out.println("Hello " + name);
         int age = scanner.nextInt();
         System.out.println("You are " + age + " years old");
+
+        int num = 10;
+        //System.out.println(num++);//10
+        System.out.println(++num);//11
+        System.out.println(!true);//false
+        System.out.println(!false);//true
+
+        System.out.println(10 > 5);//true
+        System.out.println(10 < 5);//false
+        System.out.println(10 >= 5);//true
+        System.out.println(10 <= 5);//false
+        System.out.println(10 == 5);//false
+        System.out.println(10 != 5);//true
+
+        int a = 10;
+
+
     }
 }
