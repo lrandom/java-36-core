@@ -18,7 +18,7 @@ public class DB<K> {
         this.list = readData() == null ? new ArrayList<>() : (ArrayList<K>) readData();
     }
 
-    public void writeData(Object object, String filePath) {
+    public void writeData(Object object) {
         try {
             File file = new File(filePath);
             if (!file.exists() || file.isDirectory()) {

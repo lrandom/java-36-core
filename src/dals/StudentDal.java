@@ -14,7 +14,7 @@ public class StudentDal extends DB<Student> implements IDAL<Student> {
     @Override
     public void add(Student obj) {
         list.add(obj);
-        writeData(list, FILE_PATH);
+        writeData(list);
     }
 
     @Override

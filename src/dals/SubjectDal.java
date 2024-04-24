@@ -16,7 +16,7 @@ public class SubjectDal extends DB<Subject> implements IDAL<Subject> {
     @Override
     public void add(Subject obj) {
         list.add(obj);
-        writeData(list, FILE_PATH);
+        writeData(list);
     }
 
     @Override
