@@ -1,15 +1,16 @@
 public class Main {
     public static void main(String[] args) {
-        Human luan = new Human();
-        luan.age = 32;
-        luan.name = "Luan";
+        Human luan = new Human(
+                1.72f,
+                1.73f,
+                "Luan",
+                32,
+                "Developer");
         luan.eat();
         luan.sleep();
 
-        Human quangAnh = new Human();
-        quangAnh.age = 19;
-        quangAnh.name = "Quang Anh";
-        quangAnh.eat();
-        quangAnh.sleep();
+
+        Human.sayHello();
+        System.out.println(Human.className);
     }
 }
