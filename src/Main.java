@@ -1,4 +1,5 @@
 import java.io.*;
+import java.net.URI;
 import java.net.URL;
 
 public class Main {
@@ -43,9 +44,9 @@ public class Main {
             bufferedReader.close();*/
 
             String imagePath = "https://hoanghamobile.com/tin-tuc/wp-content/uploads/2023/07/anh-dep-thien-nhien-2-1.jpg";
-            URL url = new URL(imagePath);
+            URI uri = new URI(imagePath);
 
-            BufferedInputStream bufferedInputStream = new BufferedInputStream(url.openStream());
+            BufferedInputStream bufferedInputStream = new BufferedInputStream(uri.toURL().openStream());
             FileOutputStream fileOutputStream = new FileOutputStream("/Users/luan_prep_vn/Documents/anh-dep.jpg");
             int i = 0;
             while ((i = bufferedInputStream.read()) != -1) {
