@@ -1,37 +1,25 @@
-import models.Account;
-
-import java.util.ArrayList;
-
 public class ATM {
-    ArrayList<Account> accounts = new ArrayList<>();
-    private Account loggedInAccount;
+    float balance = 100000000;
 
-    public ATM() {
-        Account account = new Account("001", "Luan", "123456", 1000000);
-        Account account1 = new Account("002", "Huy", "123456", 2000000);
-        accounts.add(account);
-        accounts.add(account1);
-    }
-
-    public Account authentication(String id, String pwd) {
-        for (Account account : accounts) {
-            if (account.getId().equals(id) && account.getPassword().equals(pwd)) {
-                loggedInAccount = account;
-                return account;
-            }
+    public float widthdraw(float amount)
+            throws AmountLargerThanBalanceExeption, AmountLessThanZeroException {
+        if (amount > balance) {
+            throw new AmountLargerThanBalanceExeption();
         }
-        return null;
-    }
-
-    public boolean widthdraw(float amount) {
-        if (loggedInAccount.getBalance() >= amount) {
-            loggedInAccount.setBalance(loggedInAccount.getBalance() - amount);
-            return true;
+        if (amount <= 0) {
+            throw new AmountLessThanZeroException();
         }
-        return false;
+        return balance -= amount;
     }
 
-    public Account getLoggedInAccount() {
-        return loggedInAccount;
+    public static void main(String[] args) {
+        ATM atm = new ATM();
+        try {
+            atm.widthdraw(-1);
+        } catch (AmountLargerThanBalanceExeption e) {
+            System.out.println(e.getMessage());
+        } catch (AmountLessThanZeroException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }
