@@ -1,64 +1,56 @@
-import java.io.*;
-import java.net.URI;
-import java.net.URL;
+import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
+/*        OuterClass outerClass = new OuterClass();
+        OuterClass.InnerClass innerClass = outerClass.new InnerClass();
+        innerClass.location();
+
+        OuterClass.StaticInnerClass staticInnerClass = new OuterClass.StaticInnerClass();
+        staticInnerClass.location();*/
+
+        /*
+        Button button = new Button();
+        button.onClick(new OnClickListener() {
+            @Override
+            public void onClickHandle() {
+                System.out.println("Button Clicked");
+            }
+        });*/
+/*
+        Scanner scanner = new Scanner(System.in);
+        int a, b;
+        a = scanner.nextInt();
+
+        do {
+            try {
+                b = scanner.nextInt();
+                System.out.println("Chia hai so a/b duoc kqua la" + a / b);
+                break;
+            } catch (Exception e) {
+                System.out.println("Vui long nhap so b !=0");
+            }
+        } while (true);
+
+        System.out.println("Tam biet");*/
+
+        ATM atm = new ATM();
+
+
         try {
-          /*  FileInputStream fileInputStream = new FileInputStream("/Users/luan_prep_vn/Desktop/note.txt");
-            int i = 0;
-            while ((i = fileInputStream.read()) != -1) {
-                System.out.print((char) i);
-            }
-            fileInputStream.close();*/
-            /*var test = "C:\\Users\\luan_prep_vn\\Desktop\\test.jpeg";
-            System.out.println(test);
-            */
-
-      /*      FileInputStream fileInputStream = new FileInputStream("/Users/luan_prep_vn/Desktop/test.jpeg");
-            FileOutputStream fileOutputStream = new FileOutputStream("/Users/luan_prep_vn/Documents/test.jpeg");
-            int i = 0;
-            while ((i = fileInputStream.read()) != -1) {
-                fileOutputStream.write(i);
-            }
-            fileOutputStream.close();
-            fileInputStream.close();*/
-
-
-            /*FileInputStream fileInputStream = new FileInputStream("/Users/luan_prep_vn/Desktop/note.txt");
-            BufferedInputStream bufferedInputStream = new BufferedInputStream(fileInputStream);
-            int i = 0;
-            while ((i = bufferedInputStream.read()) != -1) {
-                System.out.print((char) i);
-            }
-            bufferedInputStream.close();
-            fileInputStream.close();*/
-
-            /*FileReader fileReader = new FileReader("/Users/luan_prep_vn/Desktop/note.txt");
-            BufferedReader bufferedReader = new BufferedReader(fileReader);
-            String line = "";
-            while ((line = bufferedReader.readLine()) != null) {
-                System.out.println(line);
-            }
-            fileReader.close();
-            bufferedReader.close();*/
-
-            String imagePath = "https://hoanghamobile.com/tin-tuc/wp-content/uploads/2023/07/anh-dep-thien-nhien-2-1.jpg";
-            URI uri = new URI(imagePath);
-
-            BufferedInputStream bufferedInputStream = new BufferedInputStream(uri.toURL().openStream());
-            FileOutputStream fileOutputStream = new FileOutputStream("/Users/luan_prep_vn/Documents/anh-dep.jpg");
-            int i = 0;
-            while ((i = bufferedInputStream.read()) != -1) {
-                fileOutputStream.write(i);
-            }
-            fileOutputStream.flush();
-
-            bufferedInputStream.close();
-            fileOutputStream.close();
-
+            atm.withdraw(0f);
+        } catch (NegativeException e) {
+            /* System.out.println("Vui long nhap vao so tien lon hon 0");*/
+            throw e;
+        } catch (AmountLargerThanBalanceException e) {
+            //System.out.println("Vui long nhap so tien nho hơn so tien trong tk");
+            throw e;
         } catch (Exception e) {
-            System.out.println("File not found");
+
+        } finally {
+            System.out.println("Finaly");
         }
+
+
     }
 }
