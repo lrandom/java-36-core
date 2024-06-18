@@ -1,47 +1,46 @@
-import models.Employee;
+import models.Book;
+import views.BookReaderView;
+import views.BookView;
 
-import java.io.*;
-import java.net.URI;
-import java.net.URL;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        System.out.println("Xin chào đến với thư viện lập trình");
+        int choice = 0;
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("1. Quản lý sách");
+        System.out.println("2. Quản lý độc giả");
+        System.out.println("3. Quản lý mượn/trả sách");
+        System.out.println("4. Thoát");
+        System.out.println("Mời bạn chọn chức năng: ");
+        choice = scanner.nextInt();
         do {
-            System.out.println("1. Add employee");
-            System.out.println("2. Find employee");
-            System.out.println("3. Update employee");
-            System.out.println("4. Delete employee");
-            System.out.println("5. Show All employee");
-            int choice = 0;
-            EmployeeManager employeeManager = new EmployeeManager();
-            Scanner sc = new Scanner(System.in);
-            System.out.println("Enter your choice: ");
-            choice = sc.nextInt();
             switch (choice) {
                 case 1:
-                    // Add employee
-                    Scanner scanner = new Scanner(System.in);
-                    System.out.println("Enter id: ");
-                    String id = scanner.nextLine();
-                    System.out.println("Enter name: ");
-                    String name = scanner.nextLine();
-                    System.out.println("Enter age: ");
-                    int age = scanner.nextInt();
-                    System.out.println("Enter salary: ");
-                    float salary = scanner.nextFloat();
-                    Employee employee = new Employee(id, age, name, salary);
-                    employeeManager.addEmployee(employee);
+                    System.out.println("Quản lý sách");
+                    BookView bookView = new BookView();
+                    bookView.showMenu();
                     break;
 
-                case 5:
-                    // Show all employee
-                    System.out.println("List employee: ");
-                    for (Employee e : employeeManager.getEmployees()) {
-                        System.out.println("Id: " + e.getId() + " Name: " + e.getName() + " Age: " + e.getAge() + " Salary: " + e.getSalary());
-                    }
+                case 2:
+                    System.out.println("Quản lý độc giả");
+                    BookReaderView bookReaderView = new BookReaderView();
+                    bookReaderView.showMenu();
+                    break;
+
+                case 3:
+                    System.out.println("Quản lý mượn/trả sách");
+                    break;
+
+                case 4:
+                    System.out.println("Thoát");
+                    break;
+                default:
+                    System.out.println("Chức năng không tồn tại");
                     break;
             }
-        } while (true);
+        } while (choice != 4);
+
     }
 }
