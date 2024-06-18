@@ -1,64 +1,47 @@
+import models.Employee;
+
 import java.io.*;
 import java.net.URI;
 import java.net.URL;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        try {
-          /*  FileInputStream fileInputStream = new FileInputStream("/Users/luan_prep_vn/Desktop/note.txt");
-            int i = 0;
-            while ((i = fileInputStream.read()) != -1) {
-                System.out.print((char) i);
+        do {
+            System.out.println("1. Add employee");
+            System.out.println("2. Find employee");
+            System.out.println("3. Update employee");
+            System.out.println("4. Delete employee");
+            System.out.println("5. Show All employee");
+            int choice = 0;
+            EmployeeManager employeeManager = new EmployeeManager();
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Enter your choice: ");
+            choice = sc.nextInt();
+            switch (choice) {
+                case 1:
+                    // Add employee
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.println("Enter id: ");
+                    String id = scanner.nextLine();
+                    System.out.println("Enter name: ");
+                    String name = scanner.nextLine();
+                    System.out.println("Enter age: ");
+                    int age = scanner.nextInt();
+                    System.out.println("Enter salary: ");
+                    float salary = scanner.nextFloat();
+                    Employee employee = new Employee(id, age, name, salary);
+                    employeeManager.addEmployee(employee);
+                    break;
+
+                case 5:
+                    // Show all employee
+                    System.out.println("List employee: ");
+                    for (Employee e : employeeManager.getEmployees()) {
+                        System.out.println("Id: " + e.getId() + " Name: " + e.getName() + " Age: " + e.getAge() + " Salary: " + e.getSalary());
+                    }
+                    break;
             }
-            fileInputStream.close();*/
-            /*var test = "C:\\Users\\luan_prep_vn\\Desktop\\test.jpeg";
-            System.out.println(test);
-            */
-
-      /*      FileInputStream fileInputStream = new FileInputStream("/Users/luan_prep_vn/Desktop/test.jpeg");
-            FileOutputStream fileOutputStream = new FileOutputStream("/Users/luan_prep_vn/Documents/test.jpeg");
-            int i = 0;
-            while ((i = fileInputStream.read()) != -1) {
-                fileOutputStream.write(i);
-            }
-            fileOutputStream.close();
-            fileInputStream.close();*/
-
-
-            /*FileInputStream fileInputStream = new FileInputStream("/Users/luan_prep_vn/Desktop/note.txt");
-            BufferedInputStream bufferedInputStream = new BufferedInputStream(fileInputStream);
-            int i = 0;
-            while ((i = bufferedInputStream.read()) != -1) {
-                System.out.print((char) i);
-            }
-            bufferedInputStream.close();
-            fileInputStream.close();*/
-
-            /*FileReader fileReader = new FileReader("/Users/luan_prep_vn/Desktop/note.txt");
-            BufferedReader bufferedReader = new BufferedReader(fileReader);
-            String line = "";
-            while ((line = bufferedReader.readLine()) != null) {
-                System.out.println(line);
-            }
-            fileReader.close();
-            bufferedReader.close();*/
-
-            String imagePath = "https://hoanghamobile.com/tin-tuc/wp-content/uploads/2023/07/anh-dep-thien-nhien-2-1.jpg";
-            URI uri = new URI(imagePath);
-
-            BufferedInputStream bufferedInputStream = new BufferedInputStream(uri.toURL().openStream());
-            FileOutputStream fileOutputStream = new FileOutputStream("/Users/luan_prep_vn/Documents/anh-dep.jpg");
-            int i = 0;
-            while ((i = bufferedInputStream.read()) != -1) {
-                fileOutputStream.write(i);
-            }
-            fileOutputStream.flush();
-
-            bufferedInputStream.close();
-            fileOutputStream.close();
-
-        } catch (Exception e) {
-            System.out.println("File not found");
-        }
+        } while (true);
     }
 }
