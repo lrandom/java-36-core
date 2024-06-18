@@ -8,15 +8,17 @@ import java.util.Scanner;
 
 public class BookView {
     public void showMenu() {
-        System.out.println("1. Thêm sách");
-        System.out.println("2. Hiển thị danh sách sách có trong thư viện");
-        System.out.println("3. Thoát");
-        System.out.println("Mời bạn chọn chức năng: ");
+
         int choice = 0;
         Scanner scanner = new Scanner(System.in);
-        choice = scanner.nextInt();
+
         BookManager bookManager = new BookManager();
         do {
+            System.out.println("1. Thêm sách");
+            System.out.println("2. Hiển thị danh sách sách có trong thư viện");
+            System.out.println("3. Thoát");
+            System.out.println("Mời bạn chọn chức năng: ");
+            choice = scanner.nextInt();
             switch (choice) {
                 case 1:
                     System.out.println("Thêm sách");
@@ -31,6 +33,7 @@ public class BookView {
                     System.out.println("Nhập số lượng sách: ");
                     int quantity = sc.nextInt();
                     bookManager.addStorage(new Storage(quantity, book));
+                    System.out.println("Thêm sách thành công");
                     break;
 
                 case 2:

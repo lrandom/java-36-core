@@ -18,7 +18,6 @@ public class BookReaderManager {
             oos.close();
             fos.close();
         } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 

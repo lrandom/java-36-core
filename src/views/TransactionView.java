@@ -48,7 +48,13 @@ public class TransactionView {
 
                 case 2:
                     System.out.println("Trả sách");
+                    Scanner sc1 = new Scanner(System.in);
+                    System.out.println("Nhập id mượn sách: ");
+                    String id1 = sc1.nextLine();
+                    TransactionManager transactionManager1 = new TransactionManager();
+                    transactionManager.returnBook(transactionManager.find(id1));
                     break;
+                    
                 case 3:
                     System.out.println("Thoát chức năng quản lý sách");
                     break;

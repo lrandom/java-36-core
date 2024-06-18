@@ -1,6 +1,7 @@
 import models.Book;
 import views.BookReaderView;
 import views.BookView;
+import views.TransactionView;
 
 import java.util.Scanner;
 
@@ -31,6 +32,8 @@ public class Main {
 
                 case 3:
                     System.out.println("Quản lý mượn/trả sách");
+                    TransactionView transactionView = new TransactionView();
+                    transactionView.showMenu();
                     break;
 
                 case 4:

@@ -30,7 +30,6 @@ public class BookManager {
             fis.close();
             return storageList;
         } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
         }
         return new ArrayList<Storage>();
     }

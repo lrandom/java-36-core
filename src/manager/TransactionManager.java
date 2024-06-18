@@ -24,7 +24,6 @@ public class TransactionManager {
             oos.close();
             fos.close();
         } catch (Exception e) {
-            e.printStackTrace();
         }
     }
 
@@ -62,6 +61,15 @@ public class TransactionManager {
             }
         }
         return -1;
+    }
+
+    public Transaction find(String id) {
+        for (Transaction transaction : transactions) {
+            if (transaction.getId().equalsIgnoreCase(id)) {
+                return transaction;
+            }
+        }
+        return null;
     }
 
     public boolean returnBook(Transaction transaction) {
