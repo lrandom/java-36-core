@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class TransactionManager {
     ArrayList<Transaction> transactions;
 
-    private static String DB_PATH = "book.dat";
+    private static String DB_PATH = "transaction.dat";
 
     void syncData() {
         try {
@@ -37,7 +37,6 @@ public class TransactionManager {
             fis.close();
             return transactions;
         } catch (Exception e) {
-            e.printStackTrace();
         }
         return new ArrayList<Transaction>();
     }
@@ -76,6 +75,10 @@ public class TransactionManager {
         transaction.setStatus(Transaction.STATUS_RETURNED);
         if (findTransactionById(transaction.getId()) != -1) {
             transactions.set(findTransactionById(transaction.getId()), transaction);
+            BookManager bookManager = new BookManager();
+            for (Book book : transaction.getBooks()) {
+                bookManager.returnBook(book.getIsbn());
+            }
             syncData();
             return true;
         }

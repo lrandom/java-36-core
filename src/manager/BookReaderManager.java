@@ -30,7 +30,6 @@ public class BookReaderManager {
             fis.close();
             return bookReaders;
         } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
         }
         return new ArrayList<BookReader>();
     }

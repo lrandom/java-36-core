@@ -8,9 +8,7 @@ import java.util.Scanner;
 
 public class BookView {
     public void showMenu() {
-
         int choice = 0;
-        Scanner scanner = new Scanner(System.in);
 
         BookManager bookManager = new BookManager();
         do {
@@ -18,6 +16,7 @@ public class BookView {
             System.out.println("2. Hiển thị danh sách sách có trong thư viện");
             System.out.println("3. Thoát");
             System.out.println("Mời bạn chọn chức năng: ");
+            Scanner scanner = new Scanner(System.in);
             choice = scanner.nextInt();
             switch (choice) {
                 case 1:
@@ -46,6 +45,7 @@ public class BookView {
                         System.out.println("====================================");
                     }
                     break;
+
                 case 3:
                     System.out.println("Thoát chức năng quản lý sách");
                     break;
@@ -55,5 +55,6 @@ public class BookView {
                     break;
             }
         } while (choice != 3);
+
     }
 }

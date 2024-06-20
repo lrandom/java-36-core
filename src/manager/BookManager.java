@@ -73,4 +73,14 @@ public class BookManager {
         }
         return null;
     }
+
+    public void returnBook(String isbn) {
+        for (Storage s : storageList) {
+            if (s.getBook().getIsbn().equalsIgnoreCase(isbn)) {
+                s.setQuantity(s.getQuantity() + 1);
+                syncData();
+                return;
+            }
+        }
+    }
 }

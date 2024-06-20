@@ -8,15 +8,15 @@ import java.util.Scanner;
 
 public class BookReaderView {
     public void showMenu() {
-        System.out.println("1. Thêm thông tin độc giả");
-        System.out.println("2. Hiển thị danh sách độc giả đã đk");
-        System.out.println("3. Thoát");
-        System.out.println("Mời bạn chọn chức năng: ");
         int choice = 0;
-        Scanner scanner = new Scanner(System.in);
-        choice = scanner.nextInt();
         BookReaderManager bookReaderManager = new BookReaderManager();
         do {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("1. Thêm thông tin độc giả");
+            System.out.println("2. Hiển thị danh sách độc giả đã đk");
+            System.out.println("3. Thoát");
+            System.out.println("Mời bạn chọn chức năng: ");
+            choice = scanner.nextInt();
             switch (choice) {
                 case 1:
                     Scanner sc = new Scanner(System.in);
@@ -27,12 +27,13 @@ public class BookReaderView {
                     String phone = sc.nextLine();
                     System.out.println("Nhập điạ chỉ: ");
                     String address = sc.nextLine();
-
+                    //clear buffer
+                    sc = new Scanner(System.in);
                     System.out.println("Nhập tuổi: ");
                     int age = sc.nextInt();
                     BookReader bookReader = new BookReader(name, phone, address, age);
                     bookReaderManager.addBookReader(bookReader);
-
+                    System.out.println("Thêm độc giả thành công");
                     break;
 
                 case 2:

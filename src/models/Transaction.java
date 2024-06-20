@@ -58,13 +58,6 @@ public class Transaction implements Serializable {
         this.bookReader = bookReader;
     }
 
-    public ArrayList<Book> getBook() {
-        return books;
-    }
-
-    public void setBook(ArrayList<Book> books) {
-        this.books = books;
-    }
 
     public String getBorrowDate() {
         return borrowDate;

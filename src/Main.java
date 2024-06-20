@@ -9,14 +9,15 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Xin chào đến với thư viện lập trình");
         int choice = 0;
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("1. Quản lý sách");
-        System.out.println("2. Quản lý độc giả");
-        System.out.println("3. Quản lý mượn/trả sách");
-        System.out.println("4. Thoát");
-        System.out.println("Mời bạn chọn chức năng: ");
-        choice = scanner.nextInt();
+
         do {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("1. Quản lý sách");
+            System.out.println("2. Quản lý độc giả");
+            System.out.println("3. Quản lý mượn/trả sách");
+            System.out.println("4. Thoát");
+            System.out.println("Mời bạn chọn chức năng: ");
+            choice = scanner.nextInt();
             switch (choice) {
                 case 1:
                     System.out.println("Quản lý sách");
