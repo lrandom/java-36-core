@@ -5,6 +5,8 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        ArrayList<Float> names = new ArrayList();
+        //ArrayList<Float> names = new ArrayList();
+        //wildcard
+
     }
 }
