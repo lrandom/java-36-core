@@ -18,7 +18,12 @@ public class Main {
 
             String sql = "INSERT INTO categories(name) VALUES('" + category + "')";
             Statement statement = connection.createStatement();
-            statement.execute(sql);
+            int affectRow = statement.executeUpdate(sql);
+            if (affectRow > 0) {
+                System.out.println("Them moi thanh cong " + affectRow + " ban ghi");
+            } else {
+                System.out.println("Them moi that bai");
+            }
 
         } catch (SQLException e) {
             e.printStackTrace();
