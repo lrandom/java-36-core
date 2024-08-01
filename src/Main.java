@@ -9,7 +9,8 @@ public class Main {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             System.out.println("Driver loaded successfully");
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/java36", "root",
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/java36",
+                    "root",
                     "koodinh@");
             System.out.println("Connect success to DB");
             System.out.println("Vui long nhap ten danh muc: ");
